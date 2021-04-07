@@ -63,21 +63,21 @@ public class Garage {
 
     public void removeMultipleCars(int amount) {
         List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Car).collect(Collectors.toList());
-        if (amount > 0) {
+        if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
 
     public void removeMultipleTrains(int amount) {
         List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Train).collect(Collectors.toList());
-        if (amount > 0) {
+        if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
 
     public void removeMultipleYachts(int amount) {
         List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Yacht).collect(Collectors.toList());
-        if (amount > 0) {
+        if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
