@@ -12,6 +12,6 @@ public class Yacht extends Vehicle{
 
     @Override
     double calculateTotal() {
-        return 0;
+        return isMonohull ? sailArea + 300.0 : sailArea + 500.0;
     }
 }

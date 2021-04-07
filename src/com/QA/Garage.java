@@ -41,15 +41,7 @@ public class Garage {
     }
 
     public double fixVehicle(int index) {
-        double answer = 0;
-        if (garage.get(index) instanceof Car) {
-            answer = 300.0;
-        } else if (garage.get(index) instanceof Train) {
-            answer = 700.0;
-        } else if (garage.get(index) instanceof Yacht) {
-            answer = 500.0;
-        }
-        return answer;
+        return garage.get(index).calculateTotal();
     }
 
     public void removeYacht() {
@@ -84,13 +76,7 @@ public class Garage {
 
     public void calculateBill() {
         for (Vehicle v : garage) {
-            if (v instanceof Car) {
-                totalBill += 300.0;
-            } else if (v instanceof Train) {
-                totalBill += 700.0;
-            } else if (v instanceof Yacht) {
-                totalBill += 500.0;
-            }
+            totalBill += v.calculateTotal();
         }
         System.out.print("Your bill is: $" + totalBill);
     }

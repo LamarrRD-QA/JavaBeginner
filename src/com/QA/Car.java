@@ -12,6 +12,6 @@ public class Car extends Vehicle{
 
     @Override
     double calculateTotal() {
-        return 0;
+        return isAutomatic ? 500.0 : 300.0;
     }
 }

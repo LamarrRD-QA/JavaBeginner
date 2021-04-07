@@ -12,6 +12,6 @@ public class Train extends Vehicle{
 
     @Override
     double calculateTotal() {
-        return 0;
+        return 50.0 * carriageAmount / passengerSize;
     }
 }
