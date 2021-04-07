@@ -1,11 +1,15 @@
 package com.QA;
 
-public class Results {
-    static int physicsScore = 127;
-    static int chemistryScore = 87;
-    static int biologyScore = 55;
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void DisplayMarks() {
+public class Results {
+    static int physicsScore = 67;
+    static int chemistryScore = 67;
+    static int biologyScore = 67;
+    static double passPercentage = 0.6;
+
+    public static void displayMarks() {
         int total = physicsScore + chemistryScore + biologyScore;
         System.out.println("Physics: " + physicsScore + "/150");
         System.out.println("Chemistry: " + chemistryScore + "/150");
@@ -13,8 +17,31 @@ public class Results {
         System.out.println("Total: " + total + "/450");
     }
 
-    public static void DisplayPercentage() {
+    private static List<Boolean> generatePassStatuses() {
+        List<Boolean> passStatuses = new ArrayList<>();
+
+        passStatuses.add(physicsScore / 150.0 >= passPercentage);
+        passStatuses.add(chemistryScore / 150.0 >= passPercentage);
+        passStatuses.add(biologyScore / 150.0 >= passPercentage);
+
+        return passStatuses;
+
+    }
+
+    public static void displayPercentage() {
+        //List<Boolean> passStatuses = generatePassStatuses();
         double percentage = 100.0 * (physicsScore + chemistryScore + biologyScore) / 450.0;
+        long failuresCount = generatePassStatuses().stream().filter(i -> !i).count();
+
+        String message = (percentage < passPercentage) ? "Passed!" : "Failed!";
         System.out.println("Percentage obtained: " + percentage);
+
+        //System.out.println("You have " + message);
+        if (failuresCount > 0) {
+            System.out.println("You have failed in " + failuresCount + " module(s)");
+        } else {
+            System.out.println("Congratulations! You have passed");
+        }
+
     }
 }
