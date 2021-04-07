@@ -13,76 +13,76 @@ public class Garage {
 //    }
 
     public void add(Vehicle v) {
-        garage.add(v);
+        this.garage.add(v);
     }
 
     public void removeByID(int id) {
-        if (id < garage.size()) {
-            garage.remove(id);
+        if (id < this.garage.size()) {
+            this.garage.remove(id);
         }
     }
 
     public void removeCar() {
-        for (Vehicle v : garage) {
+        for (Vehicle v : this.garage) {
             if (v instanceof Car) {
-                garage.remove(v);
+                this.garage.remove(v);
                 break;
             }
         }
     }
 
     public void removeTrain() {
-        for (Vehicle v : garage) {
+        for (Vehicle v : this.garage) {
             if (v instanceof Train) {
-                garage.remove(v);
+                this.garage.remove(v);
                 break;
             }
         }
     }
 
     public double fixVehicle(int index) {
-        return garage.get(index).calculateTotal();
+        return this.garage.get(index).calculateTotal();
     }
 
     public void removeYacht() {
-        for (Vehicle v : garage) {
+        for (Vehicle v : this.garage) {
             if (v instanceof Yacht) {
-                garage.remove(v);
+                this.garage.remove(v);
                 break;
             }
         }
     }
 
     public void removeMultipleCars(int amount) {
-        List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Car).collect(Collectors.toList());
+        List<Vehicle> k = this.garage.stream().filter(vehicle -> vehicle instanceof Car).collect(Collectors.toList());
         if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
 
     public void removeMultipleTrains(int amount) {
-        List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Train).collect(Collectors.toList());
+        List<Vehicle> k = this.garage.stream().filter(vehicle -> vehicle instanceof Train).collect(Collectors.toList());
         if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
 
     public void removeMultipleYachts(int amount) {
-        List<Vehicle> k = garage.stream().filter(vehicle -> vehicle instanceof Yacht).collect(Collectors.toList());
+        List<Vehicle> k = this.garage.stream().filter(vehicle -> vehicle instanceof Yacht).collect(Collectors.toList());
         if (amount > 0 && amount < k.size()) {
             k.subList(0, amount).clear();
         }
     }
 
     public void calculateBill() {
-        for (Vehicle v : garage) {
-            totalBill += v.calculateTotal();
+        for (Vehicle v : this.garage) {
+            this.totalBill += v.calculateTotal();
         }
-        System.out.print("Your bill is: $" + totalBill);
+        System.out.print("Your bill is: $" + this.totalBill);
     }
 
     public void emptyGarage() {
-        garage.clear();
+        this.garage.clear();
     }
 
 }
