@@ -16,8 +16,6 @@ public class Person {
         return String.format("Name: %s%nAge: %s%nJob Title: %s", this.name, this.age, this.jobTitle);
     }
 
-
-
     public String getName() {
         return this.name;
     }

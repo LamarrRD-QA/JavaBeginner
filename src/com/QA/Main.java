@@ -6,19 +6,20 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Person personOne = new Person("Lamarr", 25, "Junior Developer");
-        Person personTwo = new Person("Jessica", 23, "Graphic Designer");
-        Person personThree = new Person("John", 26, "Senior Developer");
+//        Person personOne = new Person("Lamarr", 25, "Junior Developer");
+//        Person personTwo = new Person("Jessica", 23, "Graphic Designer");
+//        Person personThree = new Person("John", 26, "Senior Developer");
 
         PersonManager people = new PersonManager();
+        people.doMenu();
 
-        people.addHuman(personOne);
-        people.addHuman(personTwo);
-        people.addHuman(personThree);
-
-        System.out.println(people.search("John"));
-        people.printPeople();
+//        people.addHuman(personOne);
+//        people.addHuman(personTwo);
+//        people.addHuman(personThree);
+//
+//        System.out.println(people.search("John"));
+//        people.printPeople();
     }
-    
+
 
 }
