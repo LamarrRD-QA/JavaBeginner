@@ -3,6 +3,8 @@ package com.QA;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Calculator calc = new Calculator();
+        calc.chooseArithmetic();
+        calc.calculate();
     }
 }
